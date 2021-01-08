@@ -1,0 +1,23 @@
+.blog-wrap {
+    width: 300px;
+    display: inline-block;
+    height: auto;
+    border: 1px solid grey;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 5px;
+    box-shadow: 0 1px 2px 3px rgba(0, 0, 0, 0.1);
+}
+
+.keterangan {
+    width: 300px;
+    height: auto;
+    border: 1px solid grey;
+    box-sizing: border-box;
+    padding: 3px;
+}
+
+.blog-wrap img {
+    width: 300px;
+    height: 200px;
+}
