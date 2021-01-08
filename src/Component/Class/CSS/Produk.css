@@ -1,0 +1,41 @@
+.box-stock {
+    width: 400px;
+    height: auto;
+    box-sizing: border-box;
+    border: 1px solid grey;
+    border-radius: 5px;
+    box-shadow: 0 1px 3px 1px grey;
+    padding: 10px;
+    margin: 10px;
+    display: inline-block;
+    overflow: hidden;
+}
+
+.keterangan {
+    width: 300px;
+    height: auto;
+    box-sizing: border-box;
+    padding: 3px;
+}
+
+.btn-click {
+    text-decoration: none;
+    border: none;
+    background: none;
+    outline: none;
+    padding-left: 10px;
+    padding-right: 10px;
+    background-color: rgb(53, 53, 250);
+    color: white;
+    border-radius: 3px;
+}
+
+.btn-click:hover {
+    cursor: pointer;
+    background-color: rgb(44, 44, 172);
+}
+
+.box-stock img {
+    width: 370px;
+    text-align: center;
+}
