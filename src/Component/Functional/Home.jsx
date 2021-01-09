@@ -1,9 +1,12 @@
 import React from "react";
+import JumboTron from "./JumboTron";
+import NavbarComp from './NavbarComp';
 
 const Home = () => {
   return (
     <div>
-      <h1>Ini Adalah Home</h1>
+      <NavbarComp></NavbarComp>
+      <JumboTron></JumboTron>
     </div>
   );
 };

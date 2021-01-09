@@ -7,7 +7,7 @@ import { Alert } from "reactstrap";
 class Parent extends React.Component {
   state = {
     stock: 15,
-    status: "Tersedia",
+    status: <Alert color="success">Stok Tersedia</Alert>,
   };
 
   kurangiProduk = () => {
@@ -17,22 +17,29 @@ class Parent extends React.Component {
       });
     }
 
-    if (this.state.stock < 1) {
+    if (this.state.stock <= 1) {
       this.setState({
         status: <Alert color="danger">Stok Habis</Alert>,
       });
-    }
+    } 
   };
 
   tambahProduk = () => {
     this.setState({
       stock: this.state.stock + 1,
     });
+
+    if(this.state.stock >= 0) {
+      this.setState({
+        status: <Alert color="success">Stok Tersedia</Alert>,
+      });
+    }
   };
 
   render() {
     return (
-      <div>
+      <div className='mt-5'>
+        <hr/>
         <h3>Child Component</h3>
         <Child1
           stock={this.state.stock}

@@ -7,7 +7,7 @@ class BoostrapComp extends React.Component {
       <div>
         <Container>
           BoostrapComp
-          <Alert color="primary">This is a primary alert — check it out!</Alert>
+          <Alert color="primary">This is an alert!!!</Alert>
           <div>
             <Jumbotron>
               <h1 className="display-3">Hello, world!</h1>
