@@ -28,7 +28,7 @@ class Produk extends React.Component {
     return (
       <div className="box-stock">
         <h2>{this.props.nama}</h2>
-        <img src="https://placeimg.com/640/480/arch" alt="" />
+        <img src="../../Assets/scanner.png" alt="" />
         <div className="keterangan">
           <p>
             Harga <strong>Rp. {this.props.harga}</strong>
