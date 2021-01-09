@@ -1,6 +1,8 @@
 import React from "react";
 import Child1 from "./Child1";
 import Child2 from "./Child2";
+import { Alert } from "reactstrap";
+
 
 class Parent extends React.Component {
   state = {
@@ -17,7 +19,7 @@ class Parent extends React.Component {
 
     if (this.state.stock < 1) {
       this.setState({
-        status: "Habis",
+        status: <Alert color="danger">Stok Habis</Alert>,
       });
     }
   };

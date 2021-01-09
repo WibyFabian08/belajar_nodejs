@@ -13,10 +13,17 @@ class Child1 extends React.Component {
             <strong>Harga Rp. 1.000.000 </strong>
           </p>
           <p>Stock : {this.props.stock} </p>
-          <button className="btn-click" onClick={() => this.props.kurangiProduk()}>
+          <button
+            className="btn-click"
+            onClick={() => this.props.kurangiProduk()}
+          >
             Kurangi
           </button>
-          <button style={{marginLeft: '5px'}} className="btn-click" onClick={() => this.props.tambahProduk()}>
+          <button
+            style={{ marginLeft: "5px" }}
+            className="btn-click"
+            onClick={() => this.props.tambahProduk()}
+          >
             Tambah
           </button>
           <p>Status {this.props.status} </p>
