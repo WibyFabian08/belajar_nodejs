@@ -7,8 +7,11 @@ import {
   BrowserRouter
 } from "react-router-dom";
 import "./App.css";
-import Home from "./Component/Functional/Home";
-import Child1 from './Component/Class/Child1';
+import LandingPage from '../src/Pages/LandingPage';
+import About from '../src/Pages/About';
+import Sukses from '../src/Pages/Sukses';
+import Blog from '../src/Pages/Blog';
+import DetailBlog from "./Pages/DetailBlog";
 
 function App() {
   return(
@@ -16,10 +19,19 @@ function App() {
       <Container>
         <Router>
           <Switch>
-            <Route exact path='/' component={Home}/>
+            <Route exact path='/' component={LandingPage}/>
           </Switch>
           <Switch>
-            <Route exact path='/child1' component={Child1}/>
+            <Route exact path='/about' component={About}/>
+          </Switch>
+          <Switch>
+            <Route exact path='/sukses' component={Sukses}/>
+          </Switch>
+          <Switch>
+            <Route exact path='/blog' component={Blog}/>
+          </Switch>
+          <Switch>
+            <Route exact path='/detail/:id' component={DetailBlog}/>
           </Switch>
         </Router>
       </Container>
