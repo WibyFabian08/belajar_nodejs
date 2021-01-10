@@ -13,6 +13,7 @@ import Sukses from '../src/Pages/Sukses';
 import Blog from '../src/Pages/Blog';
 import DetailBlog from "./Pages/DetailBlog";
 import Mahasiswa from "./Pages/Mahasiswa";
+import TambahData from '../src/Pages/TambahData';
 
 function App() {
   return(
@@ -36,6 +37,9 @@ function App() {
           </Switch>
           <Switch>
             <Route path='/mahasiswa' component={Mahasiswa}/>
+          </Switch>
+          <Switch>
+            <Route path='/tambah' component={TambahData}/>
           </Switch>
         </Router>
       </Container>

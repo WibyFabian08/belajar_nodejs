@@ -2,6 +2,7 @@ import React from "react";
 import NavbarComp from "../Component/Functional/NavbarComp";
 import { Table, Button } from "react-bootstrap";
 import axios from "axios";
+import { Link } from 'react-router-dom';
 
 const apiUrl = "http://localhost:3001";
 let no = 1;
@@ -27,7 +28,7 @@ class Mahasiswa extends React.Component {
         </div>
         <div className="body mt-3">
           <h2>Daftar Mahasiswa</h2>
-          <Button variant='success'>Tambah Data</Button>
+          <Button variant='success' as={Link} to='/tambah'>Tambah Data</Button>
           <hr />
           <Table striped bordered hover>
             <thead>
