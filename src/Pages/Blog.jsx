@@ -8,9 +8,6 @@ class Blog extends React.Component {
     return (
       <div>
         <Container>
-          <div className="header">
-            <NavbarComp></NavbarComp>
-          </div>
           <div className="body mt-3">
             <Row>
               <Col>

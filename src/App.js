@@ -15,12 +15,14 @@ import DetailBlog from "./Pages/DetailBlog";
 import Mahasiswa from "./Pages/Mahasiswa";
 import TambahData from '../src/Pages/TambahData';
 import EditData from "./Pages/EditData";
+import NavbarComp from '../src/Component/Functional/NavbarComp';
 
 function App() {
   return(
     <div>
       <Container>
         <Router>
+          <NavbarComp></NavbarComp>
           <Switch>
             <Route exact path='/' component={LandingPage}/>
           </Switch>

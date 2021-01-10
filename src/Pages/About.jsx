@@ -7,9 +7,6 @@ class About extends React.Component {
   render() {
     return (
       <Container className="text-center">
-        <div className="header">
-          <NavbarComp></NavbarComp>
-        </div>
         <div className="body mt-3 bg-light">
           <h1>Hello There</h1>
           <Image className="shadow" src="../Assets/me.png" roundedCircle />

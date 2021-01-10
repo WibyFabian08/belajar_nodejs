@@ -8,9 +8,6 @@ class Sukses extends React.Component {
     return (
       <div>
         <Container>
-          <div className="header">
-            <NavbarComp></NavbarComp>
-          </div>
           <div className="mt-2 text-center body">
             <img src="../Assets/sukses.png" width="500"></img>
             <h2>Sukses</h2>

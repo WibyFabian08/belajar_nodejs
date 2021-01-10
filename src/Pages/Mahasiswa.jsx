@@ -1,7 +1,8 @@
 import React from "react";
 import NavbarComp from "../Component/Functional/NavbarComp";
-import { Table, Button } from "react-bootstrap";
+import { Table, Button, Alert } from "react-bootstrap";
 import axios from "axios";
+import qs from "querystring";
 import { Link } from "react-router-dom";
 
 const apiUrl = "http://localhost:3001";
@@ -10,6 +11,9 @@ let no = 1;
 class Mahasiswa extends React.Component {
   state = {
     mahasiswa: [],
+    response: "",
+    display: "none",
+    id_mahasiswa: "",
   };
 
   componentDidMount() {
@@ -20,57 +24,90 @@ class Mahasiswa extends React.Component {
     });
   }
 
+  hapusData = (idmahasiswa) => {
+    const data = qs.stringify({
+      id_mahasiswa: idmahasiswa,
+    });
+
+    axios
+      .delete(apiUrl + "/hapus", {
+        data: data,
+        headers: { "Content-type": "application/x-www-form-urlencoded" },
+      })
+      .then((json) => {
+        if (json.data.values === 200) {
+          this.setState({
+            response: json.data.values,
+            display: "block",
+          });
+          this.props.history.push("/mahasiswa");
+        } else {
+          this.setState({
+            response: json.data.values,
+            display: "block",
+          });
+        }
+      });
+  };
+
   render() {
     return (
       <div>
-        <div className="header">
-          <NavbarComp></NavbarComp>
-        </div>
         <div className="body mt-3">
           <h2>Daftar Mahasiswa</h2>
           <Button variant="success" as={Link} to="/tambah">
             Tambah Data
           </Button>
+          <Alert variant="success" style={{ display: this.state.display }}>
+            {this.state.response}
+          </Alert>
           <hr />
-          <Table striped bordered hover>
-            <thead>
-              <tr>
-                <th>No</th>
-                <th>Nim</th>
-                <th>Nama</th>
-                <th>Jurusan</th>
-                <th>Opsi</th>
-              </tr>
-            </thead>
-            <tbody>
-              {this.state.mahasiswa.map((mahasiswa, index) => (
-                <tr key={mahasiswa.id_mahasiswa}>
-                  <td>{no++}</td>
-                  <td>{mahasiswa.nim}</td>
-                  <td>{mahasiswa.nama}</td>
-                  <td>{mahasiswa.jurusan}</td>
-                  <td>
-                    <Button
-                      variant="primary"
-                      as={Link}
-                      to={{
-                        pathname: "/edit",
-                        state: {
-                          id_mahasiswa: mahasiswa.id_mahasiswa,
-                          nim: mahasiswa.nim,
-                          nama: mahasiswa.nama,
-                          jurusan: mahasiswa.jurusan,
-                        },
-                      }}
-                    >
-                      Edit
-                    </Button>{" "}
-                    <Button variant="danger">Hapus</Button>
-                  </td>
+          <div className="table">
+            <Table striped bordered hover>
+              <thead>
+                <tr>
+                  <th>No</th>
+                  <th>Nim</th>
+                  <th>Nama</th>
+                  <th>Jurusan</th>
+                  <th>Opsi</th>
                 </tr>
+              </thead>
+              {this.state.mahasiswa.map((mahasiswa) => (
+                <tbody>
+                  <tr key={mahasiswa.id_mahasiswa}>
+                    <td>{no++}</td>
+                    <td>{mahasiswa.nim}</td>
+                    <td>{mahasiswa.nama}</td>
+                    <td>{mahasiswa.jurusan}</td>
+                    <td>
+                      <Button
+                        variant="primary"
+                        as={Link}
+                        to={{
+                          pathname: "/edit",
+                          state: {
+                            id_mahasiswa: mahasiswa.id_mahasiswa,
+                            nim: mahasiswa.nim,
+                            nama: mahasiswa.nama,
+                            jurusan: mahasiswa.jurusan,
+                          },
+                        }}
+                      >
+                        Edit
+                      </Button>{" "}
+                      <Button
+                        variant="danger"
+                        onClick={() => this.hapusData(mahasiswa.id_mahasiswa)}
+                      >
+                        Hapus
+                      </Button>
+                    </td>
+                  </tr>
+                </tbody>
               ))}
-            </tbody>
-          </Table>
+            </Table>
+          </div>
         </div>
       </div>
     );

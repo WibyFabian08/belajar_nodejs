@@ -7,9 +7,6 @@ class LandingPage extends React.Component {
   render() {
     return (
       <div className="container">
-        <div className="header">
-          <NavbarComp></NavbarComp>
-        </div>
         <div className="body">
           <Row>
             <Col className="mt-5">

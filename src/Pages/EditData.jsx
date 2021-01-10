@@ -49,9 +49,6 @@ class EditData extends React.Component {
   render() {
     return (
       <div>
-        <div className="header">
-          <NavbarComp></NavbarComp>
-        </div>
         <div className="body mt-3">
           <h2>Edit Data</h2>
           <Alert variant="success" style={{ display: this.state.display }}>
