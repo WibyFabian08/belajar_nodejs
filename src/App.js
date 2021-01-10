@@ -14,6 +14,7 @@ import Blog from '../src/Pages/Blog';
 import DetailBlog from "./Pages/DetailBlog";
 import Mahasiswa from "./Pages/Mahasiswa";
 import TambahData from '../src/Pages/TambahData';
+import EditData from "./Pages/EditData";
 
 function App() {
   return(
@@ -40,6 +41,9 @@ function App() {
           </Switch>
           <Switch>
             <Route path='/tambah' component={TambahData}/>
+          </Switch>
+          <Switch>
+            <Route path='/edit' component={EditData}/>
           </Switch>
         </Router>
       </Container>

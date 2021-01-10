@@ -1,17 +1,19 @@
 import React from "react";
 import NavbarComp from "../Component/Functional/NavbarComp";
-import { Form, Button, Alert } from "react-bootstrap";
 import axios from "axios";
+import qs from "querystring";
+import { Form, Button, Alert } from "react-bootstrap";
 
 const apiUrl = "http://localhost:3001";
 
-class TambahData extends React.Component {
+class EditData extends React.Component {
   state = {
-    nim: "",
-    nama: "",
-    jurusan: "",
-    response: "",
+    id_mahasiswa: this.props.location.state.id_mahasiswa,
+    nim: this.props.location.state.nim,
+    nama: this.props.location.state.nama,
+    jurusan: this.props.location.state.jurusan,
     display: "none",
+    response: "",
   };
 
   handleChange = (e) => {
@@ -20,16 +22,17 @@ class TambahData extends React.Component {
     });
   };
 
-  tambahData = (e) => {
+  editData = (e, id_mahasiswa) => {
     e.preventDefault();
-    const data = {
+    const data = qs.stringify({
+      id_mahasiswa: id_mahasiswa,
       nim: this.state.nim,
       nama: this.state.nama,
       jurusan: this.state.jurusan,
-    };
+    });
 
-    axios.post(apiUrl + "/tambah", data).then((json) => {
-      if (json.data.status == 200) {
+    axios.put(apiUrl + "/edit", data).then((json) => {
+      if (json.data.values == 200) {
         this.setState({
           response: json.data.values,
           display: "block",
@@ -50,7 +53,7 @@ class TambahData extends React.Component {
           <NavbarComp></NavbarComp>
         </div>
         <div className="body mt-3">
-          <h2>Tambah Data</h2>
+          <h2>Edit Data</h2>
           <Alert variant="success" style={{ display: this.state.display }}>
             {this.state.response}
           </Alert>
@@ -86,8 +89,12 @@ class TambahData extends React.Component {
                 onChange={this.handleChange}
               />
             </Form.Group>
-            <Button variant="primary" type="submit" onClick={this.tambahData}>
-              Tambah
+            <Button
+              variant="primary"
+              type="submit"
+              onClick={(e) => this.editData(e, this.state.id_mahasiswa)}
+            >
+              Update
             </Button>
           </Form>
         </div>
@@ -96,4 +103,4 @@ class TambahData extends React.Component {
   }
 }
 
-export default TambahData;
+export default EditData;
