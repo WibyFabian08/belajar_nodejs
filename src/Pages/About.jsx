@@ -32,7 +32,7 @@ class About extends React.Component {
             <Col>
               <h4>Contact Me</h4>
               <h6 className="text-secondary">
-                <FaFacebookF /> wibyfabian rianto
+                <FaFacebookF /> Wiby Fabianrianto
               </h6>
               <h6 className="text-secondary">
                 <FaInstagram /> wiby_fabian

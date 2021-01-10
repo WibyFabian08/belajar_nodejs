@@ -14,13 +14,13 @@ class Blog extends React.Component {
           <div className="body mt-3">
             <Row>
               <Col>
-                <CardComp id='1' judul='Belajar React' tanggal='09-01-2021'></CardComp>
+                <CardComp id='1' judul='Rumah Modern' tanggal='09-01-2021'></CardComp>
               </Col>
               <Col>
-                <CardComp id='2' judul='Belajar Golang' tanggal='09-01-2021'></CardComp>
+                <CardComp id='2' judul='Rumah Classic' tanggal='09-01-2021'></CardComp>
               </Col>
               <Col>
-                <CardComp id='3' judul='Belajar Laravel' tanggal='09-01-2021'></CardComp>
+                <CardComp id='3' judul='Rumah Minimalis' tanggal='09-01-2021'></CardComp>
               </Col>
             </Row>
           </div>

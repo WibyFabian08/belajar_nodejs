@@ -12,6 +12,7 @@ import About from '../src/Pages/About';
 import Sukses from '../src/Pages/Sukses';
 import Blog from '../src/Pages/Blog';
 import DetailBlog from "./Pages/DetailBlog";
+import Mahasiswa from "./Pages/Mahasiswa";
 
 function App() {
   return(
@@ -22,16 +23,19 @@ function App() {
             <Route exact path='/' component={LandingPage}/>
           </Switch>
           <Switch>
-            <Route exact path='/about' component={About}/>
+            <Route path='/about' component={About}/>
           </Switch>
           <Switch>
-            <Route exact path='/sukses' component={Sukses}/>
+            <Route path='/sukses' component={Sukses}/>
           </Switch>
           <Switch>
-            <Route exact path='/blog' component={Blog}/>
+            <Route path='/blog' component={Blog}/>
           </Switch>
           <Switch>
-            <Route exact path='/detail/:id' component={DetailBlog}/>
+            <Route path='/detail/:id' component={DetailBlog}/>
+          </Switch>
+          <Switch>
+            <Route path='/mahasiswa' component={Mahasiswa}/>
           </Switch>
         </Router>
       </Container>

@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, Row, Col, Card, Button } from "react-bootstrap";
+import { Container, Row, Col, Card, Button, Image } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 class CardComp extends React.Component {
@@ -16,9 +16,10 @@ class CardComp extends React.Component {
               as={Link}
               to={{
                 pathname: `/detail/${this.props.id}`,
-                state: {
+                data: {
                   judul: this.props.judul,
                   tanggal: this.props.tanggal,
+                  gambar: <Image src="../Assets/rumah2.jpg" width='400px'></Image>
                 },
               }}
             >

@@ -22,6 +22,7 @@ const NavbarComp = () => {
             <NavDropdown title="Dropdown" id="basic-nav-dropdown">
               <NavDropdown.Item href="/sukses">Sukses</NavDropdown.Item>
               <NavDropdown.Item href="/about">About</NavDropdown.Item>
+              <NavDropdown.Item href="/mahasiswa">Mahasiswa</NavDropdown.Item>
             </NavDropdown>
           </Nav>
           <Form inline>
