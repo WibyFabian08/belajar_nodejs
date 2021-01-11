@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useContext } from "react";
 import NavbarComp from "../Component/Functional/NavbarComp";
 import { Container, Row, Button, Col, Image } from "react-bootstrap";
 import { FaFacebookF, FaInstagram, FaGithub, FaSchool, FaLandmark, FaWhmcs } from "react-icons/fa";
+
 
 class About extends React.Component {
   render() {
