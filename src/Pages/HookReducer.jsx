@@ -1,42 +1,21 @@
-import React, { useReducer } from "react";
+import React, { useReducer, useContext } from "react";
 import { Row, Col, Card, Button } from "react-bootstrap";
-
-const initialState = {
-    jumlah: 1,
-    hargaSatuan: 10000,
-    hargaTotal: 10000
-}
-
-const reducer = (state, action) => {
-    switch(action. type) {
-        case 'tambah': return {
-            ...state,
-            jumlah: state.jumlah + 1,
-            hargaTotal: state.hargaSatuan + (state.jumlah * state.hargaSatuan)
-        }
-        case 'kurang': return {
-            ...state,
-            jumlah: state.jumlah - 1,
-            hargaTotal: (state.jumlah * state.hargaSatuan) - state.hargaSatuan
-        }
-        default: return state
-    }
-}
-
+import { Link } from 'react-router-dom';
+import { keranjangContext } from '../App';
 
 const HooksReducer = () => {
-    
-    const [count, dispatch] = useReducer(reducer, initialState);
-    
-    function tambah() {
-        dispatch({type: 'tambah'});
-    }
 
-    function kurang() {
-        if(count.jumlah >= 1) {
-            dispatch({type: 'kurang'});
-        }
+  const countContext = useContext(keranjangContext)
+
+  function tambah() {
+    countContext.keranjangDispatch({ type: "tambah" });
+  }
+
+  function kurang() {
+    if (countContext.keranjangState.jumlah >= 1) {
+      countContext.keranjangDispatch({ type: "kurang" });
     }
+  }
 
   return (
     <div className="mt-3">
@@ -51,20 +30,32 @@ const HooksReducer = () => {
         <Col>
           <h3>Scanner</h3>
           <p>Harga</p>
-          <p>Rp. {count.hargaSatuan}</p>
+          <p>Rp. {countContext.keranjangState.hargaSatuan}</p>
           <p>Jumlah</p>
           <Row clasName="d-flex justify-content-center">
             <Col>
-              <Button variant="danger" onClick={() => kurang()}> - </Button>
+              <Button variant="danger" onClick={() => kurang()}>
+                {" "}
+                -{" "}
+              </Button>
             </Col>
             <Col>
-              <p>{count.jumlah}</p>
+              <p>{countContext.keranjangState.jumlah}</p>
             </Col>
             <Col>
-              <Button variant="primary" onClick={() => tambah()}> + </Button>
+              <Button variant="primary" onClick={() => tambah()}>
+                {" "}
+                +{" "}
+              </Button>
             </Col>
           </Row>
-          <Button className='mt-3' variant='success'>Total Harga Rp. {count.hargaTotal}</Button>
+          <Button className="mt-3" variant="success">
+            Total Harga Rp. {countContext.keranjangState.hargaTotal}
+          </Button>
+          {" "}
+          <Button className="mt-3" variant="primary" as={Link} to='tagihan'>
+            Checkout
+          </Button>
         </Col>
       </Row>
     </div>
