@@ -20,7 +20,7 @@ class LandingPage extends React.Component {
                 service, you just have to sit at home and we are ready to serve
                 your needs.
               </p>
-              <Button variant="outline-secondary mt-2" as={Link} to="/about">
+              <Button variant="outline-secondary mt-2" as={Link} to="/produkcontext">
                 Get Started
               </Button>
             </Col>

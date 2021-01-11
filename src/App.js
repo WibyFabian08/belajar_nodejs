@@ -21,6 +21,7 @@ import HooksComp from "./Pages/HooksComp";
 import UseEffect from "./Pages/UseEffect";
 import { CartContext } from "./Pages/CartContext";
 import ProdukContext from "./Pages/ProdukContext";
+import HooksReducer from "./Pages/HookReducer";
 
 function App() {
   const [value, setValue] = useState(0);
@@ -63,6 +64,9 @@ function App() {
             </Switch>
             <Switch>
               <Route path="/produkcontext" component={ProdukContext} />
+            </Switch>
+            <Switch>
+              <Route path="/hookreducer" component={HooksReducer} />
             </Switch>
           </Router>
         </CartContext.Provider>
