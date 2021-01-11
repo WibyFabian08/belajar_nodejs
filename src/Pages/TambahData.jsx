@@ -29,15 +29,21 @@ class TambahData extends React.Component {
     };
 
     axios.post(apiUrl + "/tambah", data).then((json) => {
-      if (json.data.status == 200) {
+      if (json.data.status === 200) {
         this.setState({
           response: json.data.values,
           display: "block",
+          nim: "",
+          nama: "",
+          jurusan: "",
         });
       } else {
         this.setState({
           response: json.data.values,
           display: "block",
+          nim: "",
+          nama: "",
+          jurusan: "",
         });
       }
     });

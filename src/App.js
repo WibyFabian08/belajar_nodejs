@@ -16,6 +16,7 @@ import Mahasiswa from "./Pages/Mahasiswa";
 import TambahData from '../src/Pages/TambahData';
 import EditData from "./Pages/EditData";
 import NavbarComp from '../src/Component/Functional/NavbarComp';
+import HooksComp from "./Pages/HooksComp";
 
 function App() {
   return(
@@ -46,6 +47,9 @@ function App() {
           </Switch>
           <Switch>
             <Route path='/edit' component={EditData}/>
+          </Switch>
+          <Switch>
+            <Route path='/hooks' component={HooksComp}/>
           </Switch>
         </Router>
       </Container>

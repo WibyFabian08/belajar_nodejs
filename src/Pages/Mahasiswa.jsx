@@ -36,12 +36,22 @@ class Mahasiswa extends React.Component {
       })
       .then((json) => {
         if (json.data.values === 200) {
+          axios.get(apiUrl + "/tampil").then((res) => {
+            this.setState({
+              mahasiswa: res.data.values,
+            });
+          });
           this.setState({
             response: json.data.values,
             display: "block",
           });
           this.props.history.push("/mahasiswa");
         } else {
+          axios.get(apiUrl + "/tampil").then((res) => {
+            this.setState({
+              mahasiswa: res.data.values,
+            });
+          });
           this.setState({
             response: json.data.values,
             display: "block",
@@ -55,10 +65,10 @@ class Mahasiswa extends React.Component {
       <div>
         <div className="body mt-3">
           <h2>Daftar Mahasiswa</h2>
-          <Button variant="success" as={Link} to="/tambah">
+          <Button className='mb-3' variant="success" as={Link} to="/tambah">
             Tambah Data
           </Button>
-          <Alert variant="success" style={{ display: this.state.display }}>
+          <Alert variant="danger" style={{ display: this.state.display }}>
             {this.state.response}
           </Alert>
           <hr />
@@ -66,7 +76,7 @@ class Mahasiswa extends React.Component {
             <Table striped bordered hover>
               <thead>
                 <tr>
-                  <th>No</th>
+                  <th>Id</th>
                   <th>Nim</th>
                   <th>Nama</th>
                   <th>Jurusan</th>
@@ -76,7 +86,7 @@ class Mahasiswa extends React.Component {
               {this.state.mahasiswa.map((mahasiswa) => (
                 <tbody>
                   <tr key={mahasiswa.id_mahasiswa}>
-                    <td>{no++}</td>
+                    <td>{mahasiswa.id_mahasiswa}</td>
                     <td>{mahasiswa.nim}</td>
                     <td>{mahasiswa.nama}</td>
                     <td>{mahasiswa.jurusan}</td>
